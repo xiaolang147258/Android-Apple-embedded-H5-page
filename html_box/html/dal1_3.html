@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <!-- 违规整改 -->
+  <script src="../static/js/vue.js"></script>    
+ <!--解决ui组件不适配问题-->
+ <meta  charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<!--移动适配-->  
+ <script type="text/javascript" src="../static/js/yidong.js"></script>
+ <link rel="stylesheet" type="text/css" href="../static/css/yidong.css"/>
+ <script src="../static/_vant@1.3.5@vant/lib/vant.js"></script>
+ <link rel="stylesheet" href="../static/_vant@1.3.5@vant/lib/vant-css/index.css">
+  <style type="text/css">
+  	body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;} body{background:#fff;color:#333;font-size:12px;font-family:"Arial Narrow";}  ul,ol{list-style-type:none;} select,input,img,select{vertical-align:middle;}  a{text-decoration:none;} a:link{color:#009;} a:visited{color:#800080;} a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+  		
+  		div{box-sizing: border-box};
+  		
+  		*{
+  			font-family: "PingFang SC";
+  			margin: 0;
+  			padding: 0;
+  		}
+  		
+    #app{
+    	width: 100%;
+    	background: #F5F6F8;
+    }
+    .imgsa{
+		width: 100%;
+		height: 5.253333rem;
+		/* margin-bottom: 0.333333rem; */
+	}
+	.tab_box{
+		width: 100%;
+		height: 0.973333rem;
+		border-bottom:0.013333rem solid #EDEDED;
+		background:white;
+		line-height:0.973333rem;
+		font-size: 0.373333rem;
+		color: #8E8E8E;
+		border-top: 0.013333rem solid #EDEDED;
+	}
+	.tab_box img{
+		float: left;
+	}
+	.tab_box p{
+		float: left;
+	}
+	.t1{
+		width:1.973333rem;
+		height: 100%;
+		float: left;
+		padding-left:0.4rem;
+	}
+	.t2{
+		width:1.973333rem;
+		height: 100%;
+		float: left;
+		border-left: 0.013333rem solid #EDEDED;
+		border-right: 0.013333rem solid #EDEDED;
+		padding-left:0.4rem;
+	}
+	.t4{
+		width:1.973333rem;
+		height: 100%;
+		float: left;
+		border-right: 0.013333rem solid #EDEDED;
+		padding-left:0.4rem;
+	}
+	.t3{
+		width:3.813333rem;
+		height: 100%;
+		float: left;
+		padding-left:0.74rem;
+	}
+	.btn_img{
+		width:0.28rem;
+		height: 0.16rem;
+		margin-top: 0.413333rem;
+		margin-left: 0.133333rem;
+	}
+	.left_img{
+		width: 0.333333rem;
+		height: 0.306666rem;
+		margin-right: 0.133333rem;
+		margin-top: 0.346666rem;
+	}
+	.tab_box2{
+		width: 100%;
+		height:1.44rem;
+		border-bottom:0.013333rem solid #EDEDED;
+		padding: 0.253333rem 0.386666rem;
+		background: white;
+	}
+	.tab_box2 input{
+		width: 4.646666rem;
+		height: 0.906666rem;
+		border: none;
+		background: #EDEDED;
+		border-radius:0.08rem;
+		padding-left: 0.32rem;
+		float: left;
+		margin-right: 0.32rem;
+		font-size: 0.346666rem;
+	}
+	.tab_box2 img{
+		width: 1.293333rem;
+		height: 0.906666rem;
+		float: left;
+	}
+	.tab_box2 button{
+		width:2.32rem;
+height:0.906666rem;
+background:rgba(228,235,250,1);
+opacity:1;
+border-radius:0.08rem;
+      font-size: 0.346666rem;
+	  color: #4683F8;
+	  float: left;
+	  margin-left: 0.32rem;
+	  border: none;
+	}
+	.box{
+		width: 100%;
+		height:6.093333rem;
+		margin-top: 0.333333rem;
+		background: white;
+		border-bottom:0.013333rem solid rgba(237,237,237,1);
+	}
+	.boxc1{
+		width: 100%;
+		height: 1.093333rem;
+		border-bottom:0.013333rem solid rgba(237,237,237,1);
+		line-height: 1.093333rem;
+		padding:0 0.386666rem;
+	}
+	.boxc1 button{
+		padding: 0 0.233333rem;
+height:0.693333rem;
+background:rgba(228,235,250,1);
+opacity:1;
+border-radius:0.08rem;
+		border: none;
+		font-size: 0.32rem;
+		color: #4683F8;
+		float: left;
+		margin-right: 0.32rem;
+		margin-top: 0.2rem;
+		line-height: 0.693333rem;
+	}
+	.boxc1 p{
+		font-size:0.32rem;
+		color: #8E8E8E;
+		float: right;
+	}
+	.boxc2{
+		width: 100%;
+		height: 3.28rem;
+		padding: 0.426666rem 0.386666rem;
+	}
+	.img_box{
+		width: 2.453333rem;
+		height: 2.453333rem;
+		float: left;
+		margin-right: 0.32rem;
+		position: relative;
+		background: url('../static/img/f4e38115c6753e78a185934d438e6b40.png');
+		background-size:100% 100%;background-repeat:no-repeat;
+	}
+	.img_box div{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		line-height: 2.453333rem;
+		text-align: center;
+		font-size: 0.373333rem;
+		color: white;
+		background: rgba(0,0,0,.7);
+	}
+	.box_ad{
+		width:100%;
+		height:3.72rem;
+		float: right;
+	}
+	.box_ad p{
+		margin-bottom:0.133333rem;
+		line-height:0.56rem;
+	}
+	.box_ad p a{
+		color: #4683F8;
+	}
+	.t1s{
+		width:5.013333rem;
+		height: 100%;
+		float: left;
+		padding-left:2.06666rem;
+		border-right:0.013333rem solid #EDEDED;
+	}
+	.img_boxs{
+		width: 100%;
+		height: 1.6rem;
+		margin-top: 0.08rem;
+	}
+	.img_boxs img{
+		width:2.4rem;
+		height:1.6rem;
+		float: left;
+		margin-right: 0.32rem;
+	   
+	}
+	.boxc3{
+		width: 100%;
+		height: 0.4rem;
+		margin-top: 0.16rem;
+		float: left;
+		line-height: 0.4rem;
+		/* background:red ; */
+	}
+	.boxc3{
+		font-size: 0.32rem;
+		color: #4A4A4A;
+	}
+  </style>
+</head>
+<body style="height: 100%;">
+  <div id="app" style="width: 100%;float: left;height: 100%;">
+  	 <img class="imgsa" src="../static/img/zixuntousubanner.png" alt="">
+	 
+  	 <div class="tab_box">
+		<div @click="ti_show=true" class="t1"><p>类型</p><img class="btn_img" src="../static/img/sahng.png"></div> 
+		<div @click="t2_show=true" class="t2"><p>对象</p><img class="btn_img" src="../static/img/sahng.png"></div> 
+		<div @click="t4_show=true" class="t4"><p>服务</p><img class="btn_img" src="../static/img/sahng.png"></div> 
+		<div @click="t3_show=true" class="t3"><img class="left_img" src="../static/img/riqi.png"><p>2019-05-12</p><img class="btn_img" src="../static/img/sahng.png"></div> 
+	 </div>
+	 
+	 <div class="tab_box" style="border-top:none;">
+	 		<div @click="t5_show=true" class="t1s"><p>区域</p><img class="btn_img" src="../static/img/sahng.png"></div> 
+	 		<div @click="t6_show=true" style="border: none;width:4.986666rem;" class="t1s"><p>街道</p><img class="btn_img" src="../static/img/sahng.png"></div> 
+	 </div>
+  	 <div class="tab_box2"><input type="text" placeholder="搜索机构/学校"/><img src="../static/img/sousuo.png" alt=""><button>共48条</button></div>
+		 
+	 <div class="box" v-for="i in 3">
+		 <div class="boxc1"><button>投诉</button><button>机构</button><button>个性化课程</button><p>2019-02-12</p></div>
+		 <div class="boxc2">
+			 <div class="box_ad">
+				 <p style="font-size:0.426666rem;color:#4A4A4A;font-weight:600;">新月牙培训机构</p>
+				 <p style="font-size:0.346666rem;color:#8E8E8E;"><a>#课程太贵#老师不专业#质量不好#</a>违规整改原因收费超标资质证件不全存在安全隐患</p>
+			     <div class="img_boxs">
+					 <img src="../static/img/hjs.png" ><img src="../static/img/rtc.png" ><img src="../static/img/qw.png" >
+				 </div>
+			 </div>
+			 <div class="boxc3">
+				<img style="width:0.44rem;height:0.36rem;float:left;margin-right:0.12rem;" src="../static/img/tousuren.png" alt=""><p style="float:left;">投诉人：阿布</p>
+			    <p style="float:right;">联系方式：1389499494</p><img style="width:0.46rem;height:0.4rem;float:right;margin-right:0.12rem;" src="../static/img/lianxifangsi.png" alt="">
+			 </div>
+		 </div>
+	 </div>
+  	 
+	  <van-popup v-model="t5_show" position="bottom" :overlay="true">
+	 	<van-picker :columns="columns" show-toolbar title="选择区域" @cancel="t5_show=false" @confirm="t5_show=false"  />
+	 </van-popup>
+	  <van-popup v-model="t6_show" position="bottom" :overlay="true">
+	 	<van-picker :columns="columns2" show-toolbar title="选择街道" @cancel="t6_show=false" @confirm="t6_show=false" />
+	 </van-popup>
+    <van-popup v-model="ti_show" position="bottom" :overlay="true">
+		<van-picker :columns="columns" show-toolbar title="选择类型" @cancel="ti_show=false" @confirm="ti_show=false" />
+	</van-popup>
+     <van-popup v-model="t2_show" position="bottom" :overlay="true">
+    	<van-picker :columns="columns2" show-toolbar title="选择对象" @cancel="t2_show=false" @confirm="t2_show=false"  />
+    </van-popup>
+	<van-popup v-model="t4_show" position="bottom" :overlay="true">
+		<van-picker :columns="columns2" show-toolbar title="选择服务" @cancel="t4_show=false" @confirm="t4_show=false"  />
+	</van-popup>
+     <van-popup v-model="t3_show" position="bottom" :overlay="true">
+		  <van-datetime-picker v-model="currentDate" title="选择日期" type="date" @cancel="t3_show=false" @confirm="t3_show=false"/>
+    </van-popup> 
+  </div>
+</body>
+ <script type="text/javascript" src="../static/js/jq.js"></script>
+ <script src="../static/js/vuex.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function(){
+        return {
+        	ti_show:false,
+        	columns: ['番禺区', '白云区', '荔湾区'],
+			t2_show:false,
+			columns2: ['南村镇', '剑桥郡', '市桥'],
+			t3_show:false,
+			currentDate: new Date(),
+			t4_show:false,
+			t5_show:false,
+			t6_show:false,
+			
+        }
+      },
+      
+      methods:{
+      	
+		
+      },
+      mounted(){
+      	
+      	
+      }
+      
+    })
+  </script>
+</html>

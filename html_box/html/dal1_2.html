@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <!-- 违规整改 -->
+  <script src="../static/js/vue.js"></script>    
+ <!--解决ui组件不适配问题-->
+ <meta  charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<!--移动适配-->  
+ <script type="text/javascript" src="../static/js/yidong.js"></script>
+ <link rel="stylesheet" type="text/css" href="../static/css/yidong.css"/>
+ <script src="../static/_vant@1.3.5@vant/lib/vant.js"></script>
+ <link rel="stylesheet" href="../static/_vant@1.3.5@vant/lib/vant-css/index.css">
+  <style type="text/css">
+  	body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;} body{background:#fff;color:#333;font-size:12px;font-family:"Arial Narrow";}  ul,ol{list-style-type:none;} select,input,img,select{vertical-align:middle;}  a{text-decoration:none;} a:link{color:#009;} a:visited{color:#800080;} a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+  		
+  		div{box-sizing: border-box};
+  		
+  		*{
+  			font-family: "PingFang SC";
+  			margin: 0;
+  			padding: 0;
+  		}
+  		
+    #app{
+    	width: 100%;
+    	background: #F5F6F8;
+    }
+    .imgsa{
+		width: 100%;
+		height: 5.253333rem;
+		margin-bottom: 0.333333rem;
+	}
+	.tab_box{
+		width: 100%;
+		height: 0.973333rem;
+		border-bottom:0.013333rem solid #EDEDED;
+		background:white;
+		line-height:0.973333rem;
+		font-size: 0.373333rem;
+		color: #8E8E8E;
+	}
+	.tab_box img{
+		float: left;
+	}
+	.tab_box p{
+		float: left;
+	}
+	.t1{
+		width:5.013333rem;
+		height: 100%;
+		float: left;
+		padding-left:1.626666rem;
+		border-right:0.013333rem solid #EDEDED;
+	}
+	
+	.t3{
+		width:4.986666rem;
+		height: 100%;
+		float: left;
+		padding-left:1rem;
+	}
+	.btn_img{
+		width:0.28rem;
+		height: 0.16rem;
+		margin-top: 0.413333rem;
+		margin-left: 0.733333rem;
+	}
+	.left_img{
+		width: 0.333333rem;
+		height: 0.306666rem;
+		margin-right: 0.133333rem;
+		margin-top: 0.346666rem;
+	}
+	.tab_box2{
+		width: 100%;
+		height:1.44rem;
+		border-bottom:0.013333rem solid #EDEDED;
+		padding: 0.253333rem 0.386666rem;
+		background: white;
+	}
+	.tab_box2 input{
+		width:7.2506666rem;
+		height: 0.906666rem;
+		border: none;
+		background: #EDEDED;
+		border-radius:0.08rem;
+		padding-left: 0.32rem;
+		float: left;
+		margin-right: 0.32rem;
+		font-size: 0.346666rem;
+	}
+	.tab_box2 img{
+		width: 1.293333rem;
+		height: 0.906666rem;
+		float: left;
+	}
+	.tab_box2 button{
+		width:2.32rem;
+height:0.906666rem;
+background:rgba(228,235,250,1);
+opacity:1;
+border-radius:0.08rem;
+      font-size: 0.346666rem;
+	  color: #4683F8;
+	  float: left;
+	  margin-left: 0.32rem;
+	  border: none;
+	}
+	.box{
+		width: 100%;
+		height: 4.373333rem;
+		margin-bottom: 0.333333rem;
+		background: white;
+		border-bottom:0.013333rem solid rgba(237,237,237,1);
+	}
+	.boxc1{
+		width: 100%;
+		height: 1.093333rem;
+		border-bottom:0.013333rem solid rgba(237,237,237,1);
+		line-height: 1.093333rem;
+		padding:0 0.386666rem;
+	}
+	.boxc1 button{
+		/* width:1.56rem; */
+		padding: 0 0.12rem;
+height:0.693333rem;
+background:rgba(228,235,250,1);
+opacity:1;
+border-radius:0.08rem;
+		border: none;
+		font-size: 0.32rem;
+		color: #4683F8;
+		float: left;
+		margin-right: 0.32rem;
+		margin-top: 0.2rem;
+		line-height: 0.693333rem;
+	}
+	.boxc1 p{
+		font-size:0.32rem;
+		color: #8E8E8E;
+		float: right;
+	}
+	.boxc2{
+		width: 100%;
+		height: 3.28rem;
+		padding: 0.426666rem 0.386666rem;
+	}
+	.img_box{
+		width: 2.453333rem;
+		height: 2.453333rem;
+		float: left;
+		margin-right: 0.32rem;
+		position: relative;
+		
+	}
+	.img_box div{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		line-height: 2.453333rem;
+		text-align: center;
+		font-size: 0.373333rem;
+		color: white;
+		/* background: rgba(0,0,0,.7); */
+	}
+	.img_box div img{
+		width: 100%;
+		height: 100%;
+	}
+	.box_ad{
+		width: 6.426666rem;
+		height: 2.453333rem;
+		float: right;
+	}
+	.box_ad p{
+		margin-bottom:0.233333rem;
+	}
+  </style>
+</head>
+<body style="height: 100%;">
+  <div id="app" style="width: 100%;float: left;height: 100%;">
+  	 <img class="imgsa" src="../static/img/wenjianshenheabnner.png" alt="">
+	 
+  	 <div class="tab_box">
+		<div @click="ti_show=true" class="t1"><p>全部</p><img class="btn_img" src="../static/img/sahng.png"></div> 
+		<div @click="t3_show=true" class="t3"><img class="left_img" src="../static/img/riqi.png"><p>2019-05-12</p><img style="margin-left:0.133333rem;" class="btn_img" src="../static/img/sahng.png"></div> 
+	 </div> 
+  	 <div class="tab_box2"><input type="text" placeholder="搜索机构/学校"/><img src="../static/img/sousuo.png" alt=""></div>
+		 
+	 <div class="box" v-for="i in 3">
+		 <div class="boxc1"><button>文件通知</button><button>发布人姓名</button><p>2019-02-12</p></div>
+		 <div class="boxc2">
+			 <div class="img_box"><div><img src="../static/img/9df9927d0530c6a4e211d29cf7d1ec07.png" ></div></div>
+			 <div class="box_ad">
+				 <p style="font-size:0.426666rem;color:#4A4A4A;font-weight:600;">新月牙培训机构</p>
+				 <p style="font-size:0.346666rem;color:#8E8E8E;">最新政策最新政策最新政策最新政策最新政策最新政策最新政策最新政策最新政策最新政策最新政策最新…….</p>
+			 </div>
+		 </div>
+	 </div>
+  	 
+    <van-popup v-model="ti_show" position="bottom" :overlay="true">
+		<van-picker :columns="columns" show-toolbar title="选择区域" @cancel="ti_show=false" @confirm="ti_show=false"  />
+	</van-popup>
+	
+     <van-popup v-model="t3_show" position="bottom" :overlay="true">
+		  <van-datetime-picker v-model="currentDate" title="选择日期" type="date" @cancel="t3_show=false" @confirm="t3_show=false"/>
+    </van-popup>
+  </div>
+</body>
+ <script type="text/javascript" src="../static/js/jq.js"></script>
+ <script src="../static/js/vuex.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function(){
+        return {
+        	ti_show:false,
+        	columns: ['番禺区', '白云区', '荔湾区'],
+			
+			t3_show:false,
+			currentDate: new Date(),
+			
+        }
+      },
+      
+      methods:{
+      	
+		
+      },
+      mounted(){
+      	
+      	
+      }
+      
+    })
+  </script>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+ <!--解决ui组件不适配问题-->
+ <meta  charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<!--移动适配-->  
+ <script type="text/javascript" src="../static/js/yidong.js"></script>
+ <link rel="stylesheet" type="text/css" href="../static/css/yidong.css"/>
+ <script type="text/javascript" src="../static/js/echarts.js"></script>
+ 
+  <style type="text/css">
+  	   *{
+		   margin: 0;
+		   padding: 0;
+		   box-sizing: border-box;
+	   }
+	   .tall{
+		   width:100%;
+		   height: 6.333333rem;
+		   /* margin-top: -0.8rem; */
+		   margin: auto;
+	   }
+	   .img_top{
+		   width: 2.186666rem;
+		   height: 0.666666rem;
+		   margin-left: -0.083333rem;
+	   }
+	   .tab_box{
+		   width: 100%;
+		   height: 0.6rem;
+		   padding: 0 2.586666rem;
+		  position: absolute;
+		  left: 0;
+		  top: 1.626666rem;
+	   }
+	   .tab_box a{
+		   width:0.293333rem;
+		   height: 0.293333rem;
+		   float: left;
+		   margin: 0.16rem 0.213333rem 0 0;
+		   border-radius: 50%;
+	   }
+	   .tab_box p{
+		   font-size: 0.426666rem;
+		   color: #8E8E8E;
+		   float: left;
+	   }
+  </style>
+</head>
+<body style="height: 100%;">
+	
+	
+	<div style="width:100%;padding:0.44rem 0.48rem 0 0.48rem;position:relative;">
+		<img class="img_top" src="../static/img/shujufenxi%20(1).png" alt="">
+		<div class="tab_box"><a style="background:#FA9762;"></a><p style="margin-right:1.103333rem;">投诉量</p>
+		    <a style="background:#D092F0;"></a><p>退费量</p>
+		</div>
+	</div>
+	 <div class="tall" id="main2"></div>
+</body>
+ <script type="text/javascript" src="../static/js/jq.js"></script>
+  <script type="text/javascript">
+	  
+	function getParam(paramName){//封装获取url参数函数
+	    paramValue = "", isFound = !1; 
+	    if (window.location.search.indexOf("?") == 0 && window.location.search.indexOf("=") > 1) { 
+	        arrSource = unescape(window.location.search).substring(1, window.location.search.length).split("&"), i = 0; 
+	        while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++ 
+	    } 
+	    return paramValue == "" && (paramValue = null), paramValue 
+	}
+	  
+	  $.ajax({
+             type:"GET",
+             url: "http://govern.cieo.com.cn/analysis/line",
+             data: {
+				 page:getParam('id')
+			 },
+             dataType: "json",
+             success:res=>{
+                    console.log(res);
+					if(res.code==200){
+						zhe_xian(res.data.xAxis,res.data.line[0].data,res.data.line[1].data);//传入数据并初始化表格
+					}
+              }
+         });
+	  
+	  function zhe_xian(btn_box,t_box,tui_box){//折线图
+	  	// 基于准备好的dom，初始化echarts实例
+	      var myChart = echarts.init(document.getElementById('main2'));
+	      // 指定图表的配置项和数据
+	option = {
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data :btn_box,//月份集合数据
+		 axisLabel: {
+                        textStyle: {//x轴字体样式
+                            color: '#8E8E8E',
+                            fontSize:'13'
+                        },
+                    },   
+		},
+    yAxis:{
+        type: 'value',
+		axisLabel:{
+			// show:false,//隐藏y轴刻度尺
+			textStyle: {//y轴字体样式
+			    color: '#8E8E8E',
+			    fontSize:'13'
+			},
+		}
+    },
+	color:['#D092F0','#FA9762'],
+	 grid: {
+        left: '2.5%',
+        right: '2.5%',
+        bottom: '4%',
+        containLabel: true
+    },
+    series: [
+		
+		{//投诉量
+         data:t_box,//数据
+        type: 'line',
+		symbol: 'circle', // 拐点类型
+		 smooth: true,//为true时线为圆滑状,默认为false折线状
+		 symbolSize: 0, // 拐点圆的大小
+         areaStyle: {},
+		  itemStyle: {  
+                normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1,[{
+                            offset: 0, color: '#FFCFB5' // 0% 处的颜色
+                        }, 
+						{
+						    offset: 0.15, color: '#FFCDB4' // 15% 处的颜色
+						},
+						{
+                            offset: 1, color: '#FFFFFF' // 100% 处的颜色
+                        }]
+                    ), //背景渐变色    
+                    lineStyle: {        // 系列级个性化折线样式  
+                        width: 3,  
+                        type: 'solid',  
+                        color: "#FA9762" //折线的颜色
+                    }  
+                },  
+                emphasis: {
+                    color: '',   
+                    lineStyle: {        // 系列级个性化折线样式  
+                        width: 2,  
+                        type: 'dotted',  
+                        color: "#FA9762" 
+                    }  
+                }  
+            },//线条样式
+        },
+		
+        {//退费量
+         data:tui_box,//数据
+        type: 'line',
+		symbol: 'circle', // 拐点类型
+		 smooth: true,
+		 symbolSize: 0, // 拐点圆的大小
+         areaStyle: {},
+		 itemStyle: {  
+		       normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+		           color: new echarts.graphic.LinearGradient(0, 0, 0, 1,[{
+		                   offset: 0, color: '#E9BEFF' // 0% 处的颜色
+		               }, {
+		                   offset: 0.15, color: '#F0D3FF' // 15% 处的颜色
+		               }, {
+		                   offset: 1, color: '#FFFFFF' // 100% 处的颜色
+		               }]
+		           ), //背景渐变色    
+		           lineStyle:{        // 系列级个性化折线样式  
+		               width: 3,  
+		               type: 'solid',  
+		               color: "#D092F0" //折线的颜色
+		           }  
+		       },  
+		       emphasis: {
+		           color: '',
+		           lineStyle: {// 系列级个性化折线样式  
+		               width: 2,  
+		               type: 'dotted',  
+		               color: "#D092F0" 
+		           }  
+		       }  
+		   },//线条样式
+        },
+    ]
+	};
+	      // 使用刚指定的配置项和数据显示图表。
+	      myChart.setOption(option);
+	  };
+	
+  </script>
+</html>

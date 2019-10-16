@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>实时预警</title>
+  <!-- import CSS -->
+  <script src="../static/js/vue.js"></script>    
+ <!--解决ui组件不适配问题-->
+ <meta  charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<!--移动适配-->  
+ <script type="text/javascript" src="../static/js/yidong.js"></script>
+ <link rel="stylesheet" type="text/css" href="../static/css/yidong.css"/>
+ <script src="../static/_vant@1.3.5@vant/lib/vant.js"></script>
+ <link rel="stylesheet" href="../static/_vant@1.3.5@vant/lib/vant-css/index.css">
+  <style type="text/css">
+  	body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;} body{background:#fff;color:#333;font-size:12px;font-family:"Arial Narrow";}  ul,ol{list-style-type:none;} select,input,img,select{vertical-align:middle;}  a{text-decoration:none;} a:link{color:#009;} a:visited{color:#800080;} a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+  		
+  		div{box-sizing: border-box};
+  		
+  		*{
+  			font-family: "微软雅黑";
+  			margin: 0;
+  			padding: 0;
+  		}
+  		
+    #app{
+    	width: 100%;
+    	background: #F5F5F5;
+    }
+   .top_box{
+	   width: 100%;
+	   height: 5.853333rem;
+	   background: white;
+	   margin-bottom:0.32rem;
+   }
+   .top_title{
+	   width:8.52rem;
+	   height: 0.6rem;
+	   margin: 0.466666rem 0 1.053333rem 0.4rem;
+   }
+   #boxs p{
+	   margin-top:0.22rem;
+   }
+   #boxs a{
+	   color:#4683F8;
+   }
+   .tab_box{
+	   width: 100%;
+	   height:0.973333rem;
+	   border-bottom:0.013333rem solid #EDEDED;
+	   line-height:0.973333rem;
+	   background: white;
+   }
+   .da img{
+	   width:0.28rem;
+	   height: 0.16rem;
+	   float: left;
+	   margin-left: 0.133333rem;
+	   margin-top:0.413333rem;
+   }
+   .da{
+	   padding-left:0.88rem;
+   }
+   .da p{
+	   float: left;
+   }
+   .tab_box_right{
+	   width:4.333333rem;
+	   height: 100%;
+	   color:#4683F8;
+	   float: right;
+   }
+   .tab_box_right p{
+	   float: left;
+	   margin-left: 0.626666rem;
+   }
+   .tab_box_right img{
+	   width: 0.266666rem;
+	   height: 0.373333rem;
+	   float: left;
+	   margin-left: 0.133333rem;
+	   margin-top: 0.293333rem;
+   }
+   .box{
+   	width: 100%;
+   	height:3.253333rem;
+   	margin-bottom: 0.333333rem;
+   	background: white;
+   	border-bottom:0.013333rem solid rgba(237,237,237,1);
+	position: relative;
+   }
+   .boxc1{
+   		width: 100%;
+   		height: 1.093333rem;
+   		border-bottom:0.013333rem solid rgba(237,237,237,1);
+   		line-height: 1.093333rem;
+   		padding:0 0.386666rem;
+   	}
+   	.boxc1 button{
+   		width:1.56rem;
+   height:0.693333rem;
+   background:rgba(228,235,250,1);
+   opacity:1;
+   border-radius:0.08rem;
+   		border: none;
+   		font-size: 0.32rem;
+   		color: #4683F8;
+   		float: left;
+   		margin-right: 0.32rem;
+   		margin-top: 0.2rem;
+   		line-height: 0.693333rem;
+   	}
+   	.boxc1 p{
+   		font-size:0.32rem;
+   		color: #8E8E8E;
+   		float: right;
+   	}
+   	.boxc2{
+   		width: 100%;
+   		height: 3.28rem;
+   		padding: 0.426666rem 0.386666rem;
+   	}
+	.img_box{
+		width: 2.453333rem;
+		height: 2.453333rem;
+		float: left;
+		margin-right: 0.32rem;
+		position: relative;
+		background: url('../static/img/f4e38115c6753e78a185934d438e6b40.png');
+		background-size:100% 100%;background-repeat:no-repeat;
+	}
+	.img_box div{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		line-height: 2.453333rem;
+		text-align: center;
+		font-size: 0.373333rem;
+		color: white;
+		background: rgba(0,0,0,.7);
+	}
+	.box_ad{
+		width: 6.426666rem;
+		height: 2.453333rem;
+		float: right;
+	}
+	.box_ad p{
+		margin-bottom:0.133333rem;
+	}
+	.box_ad a{
+		color:#70D000;
+	}
+	.p_a{
+		font-size: 0.346666rem;
+		color: #4683F8;
+		position: absolute;
+		top: 0.453333rem;
+		right: 0.493333rem;
+	}
+  </style>
+</head>
+<body style="height: 100%;">
+  <div id="app" style="width: 100%;float: left;height: 100%;">
+	  
+  	 <div class="top_box">
+		 <img class="top_title" src="../static/img/yujing.png" alt="">
+		 <div style="width: 100%;height:2.48rem;">
+			 <img style="width: 2.24rem;height: 2.48rem;float: left;margin:0 1.253333rem 0 0.946666rem;" src="../static/img/jingbaoss.png" alt="">
+		     <div style="width:4.426666rem;height:2.48rem;float: left;font-size:0.426666rem;color:#4A4A4A;" id="boxs">
+				<p>警报单位<a>60</a>家</p> <p>警报机构<a>30</a>家（50%）</p> <p>警报学校<a>30</a>家（50%）</p>
+			 </div>
+		 </div>
+	 </div>
+	 
+  	 <div class="tab_box">
+		 <div @click="t5_show=true" class="da" style="width:2.786666rem;height:100%;float:left;color:#8E8E8E;"><p>区域</p><img src="../static/img/sahng.png" alt=""></div>
+		 <div @click="t6_show=true" class="da" style="width:2.88rem;height:100%;float:left;color:#8E8E8E;border-left:0.013333rem solid #EDEDED;border-right:0.013333rem solid #EDEDED;"><p>街道</p><img src="../static/img/sahng.png" alt=""></div>
+	     <div class="tab_box_right">
+			 <p>距离</p><img src="../static/img/shunxu.png">
+			 <p style="margin-left:0.92rem;">分值</p><img src="../static/img/daoxu.png">
+	     </div>
+	 </div>
+  	 
+	 <div class="box">
+		     <p class="p_a"><200m</p>
+	 		 <div class="boxc2">
+	 			 <div class="img_box"><div>紧急</div></div>
+	 			 <div class="box_ad">
+	 				 <p style="font-size:0.426666rem;color:#4A4A4A;font-weight:600;">新月牙培训机构</p>
+	 				 <p style="font-size:0.346666rem;color:#8E8E8E;">综合得分：<a>18分</a></p>
+	 				 <p style="font-size:0.346666rem;color:#8E8E8E;">单位地址：广州市番禺区市桥街道大北路203号</p>
+	 			 </div>
+	 		 </div>
+	 </div>
+	 <div class="box">
+	 		     <p class="p_a"><300m</p>
+	 		 <div class="boxc2">
+	 			 <div class="img_box"><div>严重</div></div>
+	 			 <div class="box_ad">
+	 				 <p style="font-size:0.426666rem;color:#4A4A4A;font-weight:600;">成才小学</p>
+	 				 <p style="font-size:0.346666rem;color:#8E8E8E;">综合得分：<a>35分</a></p>
+	 				 <p style="font-size:0.346666rem;color:#8E8E8E;">单位地址：广州市番禺区市桥街道大北路288号</p>
+	 			 </div>
+	 		 </div>
+	 </div>
+	 <div class="box">
+	 		     <p class="p_a"><800m</p>
+	 		 <div class="boxc2">
+	 			 <div class="img_box"><div>严重</div></div>
+	 			 <div class="box_ad">
+	 				 <p style="font-size:0.426666rem;color:#4A4A4A;font-weight:600;">陈可可英语培训</p>
+	 				 <p style="font-size:0.346666rem;color:#8E8E8E;">综合得分：<a>48分</a></p>
+	 				 <p style="font-size:0.346666rem;color:#8E8E8E;">单位地址：广州市番禺区南村街道大北路355号</p>
+	 			 </div>
+	 		 </div>
+	 </div>
+	 
+  	 
+	 <van-popup v-model="t5_show" position="bottom" :overlay="true">
+	 	<van-picker :columns="columns" show-toolbar title="选择区域" @cancel="t5_show=false" @confirm="t5_show=false"  />
+	 </van-popup>
+	  <van-popup v-model="t6_show" position="bottom" :overlay="true">
+	 	<van-picker :columns="columns2" show-toolbar title="选择街道" @cancel="t6_show=false" @confirm="t6_show=false" />
+	 </van-popup>
+	 
+  </div>
+</body>
+ <script type="text/javascript" src="../static/js/jq.js"></script>
+ <script src="../static/js/vuex.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function(){
+        return {
+        	t5_show:false,
+        	t6_show:false,
+			columns: ['番禺区', '白云区', '荔湾区'],
+			columns2: ['南村镇', '剑桥郡', '市桥'],
+			
+        }
+      },
+      
+      methods:{
+      	
+      },
+      mounted(){
+      	
+      }
+      
+    })
+  </script>
+</html>
